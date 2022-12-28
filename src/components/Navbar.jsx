@@ -10,7 +10,10 @@ const Navbar = () => {
           aria-label="Global"
         >
           <div class="flex items-center justify-between">
-            <Link to='/' class="flex-none text-xl font-semibold dark:text-white">
+            <Link
+              to="/"
+              class="flex-none text-xl font-semibold dark:text-white"
+            >
               Let's DO
             </Link>
             <div class="sm:hidden">
@@ -50,14 +53,29 @@ const Navbar = () => {
             class="hidden basis-full grow sm:block"
           >
             <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:pl-5">
-              <Link to='/' class="font-semibold  hover:text-blue-500 dark:text-white dark:hover:text-blue-500">
+              <Link
+                to="/addtask"
+                class="font-semibold  hover:text-blue-500 dark:text-white dark:hover:text-blue-500"
+              >
                 Add Task
               </Link>
-              <Link to='/' class="font-semibold  hover:text-blue-500 dark:dark:text-white dark:hover:text-blue-500">
+              <Link
+                to="/mytask"
+                class="font-semibold  hover:text-blue-500 dark:dark:text-white dark:hover:text-blue-500"
+              >
                 My Task
               </Link>
-              <Link to='/' class="font-semibold  hover:text-blue-500 dark:dark:text-white dark:hover:text-blue-500">
+              <Link
+                to="/completedtask"
+                class="font-semibold  hover:text-blue-500 dark:dark:text-white dark:hover:text-blue-500"
+              >
                 Completed Task
+              </Link>
+              <Link
+                to="/login"
+                class="font-semibold  hover:text-blue-500 dark:dark:text-white dark:hover:text-blue-500"
+              >
+                Login
               </Link>
             </div>
           </div>
