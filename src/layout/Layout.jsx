@@ -9,7 +9,7 @@ const Layout = () => {
   const {user}=useContext(AuthContext)
   console.log(user);
   return (
-    <section className="bg-gray-50 dark:text-white text-base mx-auto dark:bg-gray-800  ">
+    <section className="bg-gray-50 dark:text-white text-base mx-auto dark:bg-gray-800 h-[100vh]">
       <Navbar></Navbar>
       <Divider></Divider>
       <Outlet></Outlet>
