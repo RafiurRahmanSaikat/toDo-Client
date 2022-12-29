@@ -2,6 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import googlePic from "../assets/google.png";
 const Login = () => {
+ const SUBMIT=(e)=>{
+   e.preventDefault();
+   
+
+
+ }
   return (
     <>
       <div className="m-auto  xl:container px-12 sm:px-0 mx-auto">
@@ -13,7 +19,7 @@ const Login = () => {
                 Login to your account
               </h3>
               <div className="mt-12 flex flex-wrap sm:grid gap-6 grid-cols-2">
-                <button className="w-full h-11 rounded-full border border-gray-300/75    px-6 transition active:bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:hover:bg-gray-800 dark:hover:border-gray-700">
+                <button  className="w-full h-11 rounded-full border border-gray-300/75    px-6 transition active:bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:hover:bg-gray-800 dark:hover:border-gray-700">
                   <div className="w-max mx-auto flex items-center justify-center space-x-4">
                     <img src={googlePic} className="w-5" alt="" />
                     <span className="block w-max text-sm font-semibold tracking-wide text-cyan-700 dark:text-white">
@@ -55,7 +61,7 @@ const Login = () => {
                 </div>
 
                 <div>
-                  <button className="w-full rounded-full bg-sky-500 dark:bg-sky-400 h-11 flex items-center justify-center px-6 py-3 transition hover:bg-sky-600 focus:bg-sky-600 active:bg-sky-800">
+                  <button type="submit" className="w-full rounded-full bg-sky-500 dark:bg-sky-400 h-11 flex items-center justify-center px-6 py-3 transition hover:bg-sky-600 focus:bg-sky-600 active:bg-sky-800">
                     <span className="text-base font-semibold text-white dark:text-gray-900">
                       Login
                     </span>
