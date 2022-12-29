@@ -1,7 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import { AuthContext } from "../context/AuthContext";
 
 const Signup = () => {
+  const { SignUp } = useContext(AuthContext);
+
+  const SUBMIT = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    SignUp(email, password)
+      .then(() => {
+        toast.success("User Created Successfully");
+      })
+      .catch((error) => {
+        toast.error(error.code);
+      });
+  };
   return (
     <div>
       <div className="relative py-16">
@@ -12,9 +30,12 @@ const Signup = () => {
                 <h2 className="mb-8 text-2xl font-bold text-gray-800 dark:text-white">
                   Sign Up
                 </h2>
-                <form action="" className="space-y-8">
+                <form onSubmit={SUBMIT} className="space-y-8">
                   <div className="space-y-2">
-                    <label for="email" className="text-gray-600 dark:text-gray-300">
+                    <label
+                      for="email"
+                      className="text-gray-600 dark:text-gray-300"
+                    >
                       Email
                     </label>
                     <input
@@ -22,13 +43,16 @@ const Signup = () => {
                       name="email"
                       id="email"
                       autocomplete="username"
-                      className="focus:outline-none block w-full rounded-md border border-gray-200 dark:border-gray-600 bg-transparent px-4 py-3 text-gray-600 transition duration-300 invalid:ring-2 invalid:ring-red-400 focus:ring-2 focus:ring-cyan-300"
+                      className="focus:outline-none block w-full rounded-md border border-gray-200 dark:border-gray-600 bg-transparent px-4 py-3 text-gray-600 dark:text-white transition duration-300 invalid:ring-2 invalid:ring-red-400 focus:ring-2 focus:ring-cyan-300"
                     />
                   </div>
 
                   <div>
                     <div className="flex items-center justify-between">
-                      <label for="pwd" className="text-gray-600 dark:text-gray-300">
+                      <label
+                        for="pwd"
+                        className="text-gray-600 dark:text-gray-300"
+                      >
                         Password
                       </label>
                     </div>
@@ -37,7 +61,7 @@ const Signup = () => {
                       name="password"
                       id="pwd"
                       autocomplete="current-password"
-                      className="focus:outline-none block w-full rounded-md border border-gray-200 dark:border-gray-600 bg-transparent px-4 py-3 text-gray-600 transition duration-300 invalid:ring-2 invalid:ring-red-400 focus:ring-2 focus:ring-cyan-300"
+                      className="focus:outline-none block w-full rounded-md border border-gray-200 dark:border-gray-600 bg-transparent px-4 py-3 dark:text-white  text-gray-600 transition duration-300 invalid:ring-2 invalid:ring-red-400 focus:ring-2 focus:ring-cyan-300"
                     />
                   </div>
                   <div className="flex flex-wrap justify-between items-center ">
