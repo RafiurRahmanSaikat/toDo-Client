@@ -3,23 +3,22 @@ import React from "react";
 const CompletedTaskCard = () => {
   return (
     <>
-      <div class="w-full p-4 max-w-sm overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
+      <div className="w-full p-4 max-w-sm overflow-hidden    rounded-lg shadow-lg  ">
         <img
-          class="object-cover rounded-xl object-center w-full h-56"
+          className="object-cover rounded-xl object-center w-full h-56"
           src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
           alt="avatar"
         />
 
-        <div class="px-6 py-4">
-          <h1 class="text-xl font-semibold text-gray-800 dark:text-white">
+        <div className="px-6 py-4">
+          <h1 className="text-xl font-semibold text-gray-800 dark:text-white">
             Task Title
           </h1>
 
-          <p class="py-2 text-gray-700 dark:text-gray-400">
+          <p className="py-2 text-gray-700 dark:text-gray-400">
             Details : <br />
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque,
-            nulla animi ut tempore consequatur quisquam nihil cumque nemo,
-            des
+            nulla animi ut tempore consequatur quisquam nihil cumque nemo, des
           </p>
         </div>
         <form
@@ -32,7 +31,7 @@ const CompletedTaskCard = () => {
               name="details"
               rows="2"
               placeholder="Add Your Comments"
-              class="py-3 px-4 m-2 block w-full text-base border-gray-200 rounded-md  focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-white"
+              className="py-3 px-4 m-2 block w-full text-base border-gray-200 rounded-md  focus:border-blue-500 focus:ring-blue-500   dark:border-gray-700 dark:text-white"
             ></textarea>
             <button
               type="submit"

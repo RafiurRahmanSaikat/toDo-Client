@@ -5,7 +5,7 @@ const MyTask = () => {
   return (
     <>
       <section className="p-4 text-gray-800">
-        <h1 class="bg-gradient-to-r text-center p-8 from-green-300 via-blue-500 to-purple-600 bg-clip-text text-4xl font-extrabold text-transparent sm:text-7xl">
+        <h1 className="bg-gradient-to-r text-center p-8 from-green-300 via-blue-500 to-purple-600 bg-clip-text text-4xl font-extrabold text-transparent sm:text-7xl">
           My Task
         </h1>
 
