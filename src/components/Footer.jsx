@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -18,38 +19,28 @@ const Footer = () => {
             </div>
             <ul className="flex flex-wrap items-center space-x-4 sm:space-x-8">
               <li>
-                <a rel="noopener noreferrer" href="#">
-                  Terms of Use
-                </a>
+                <Link>Terms of Use</Link>
               </li>
               <li>
-                <a rel="noopener noreferrer" href="#">
-                  Privacy
-                </a>
+                <Link>Privacy</Link>
               </li>
             </ul>
           </div>
           <ul className="flex flex-wrap pl-3 space-x-4 sm:space-x-8">
             <li>
-              <a rel="noopener noreferrer" href="#">
-                Instagram
-              </a>
+              <Link>Instagram</Link>
             </li>
             <li>
-              <a rel="noopener noreferrer" href="#">
-                Facebook
-              </a>
+              <Link>Facebook</Link>
             </li>
             <li>
-              <a rel="noopener noreferrer" href="#">
-                Twitter
-              </a>
+              <Link>Twitter</Link>
             </li>
           </ul>
         </div>
       </footer>
     </>
-  )
+  );
 };
 
 export default Footer;

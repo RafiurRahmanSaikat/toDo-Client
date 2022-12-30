@@ -1,7 +1,54 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const menu = (
+    <>
+{user ? <>
+    <Link
+        to="/mytask"
+        className="font-semibold  hover:text-blue-500 dark:dark:text-white dark:hover:text-blue-500"
+      >
+        My Task
+      </Link>
+      <Link
+        to="/completedtask"
+        className="font-semibold  hover:text-blue-500 dark:dark:text-white dark:hover:text-blue-500"
+      >
+        Completed Task
+      </Link>
+      <Link
+        onClick={logOut}
+        className="font-semibold  hover:text-blue-500 dark:dark:text-white dark:hover:text-blue-500"
+      >
+        Log Out
+      </Link>
+    </>:
+
+      <>
+      
+      <Link
+        to="/addtask"
+        className="font-semibold  hover:text-blue-500 dark:dark:text-white dark:hover:text-blue-500"
+      >
+        Add Task
+      </Link>
+      <Link
+        to="/login"
+        className="font-semibold  hover:text-blue-500 dark:dark:text-white dark:hover:text-blue-500"
+      >
+        Login
+      </Link>
+      </>
+
+    
+
+     }
+    </>
+  );
   return (
     <>
       <header className="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full   text-sm py-4  ">
@@ -52,31 +99,8 @@ const Navbar = () => {
             id="navbar-with-collapse"
             className="hidden basis-full grow sm:block"
           >
-            <div className="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:pl-5">
-              <Link
-                to="/addtask"
-                className="font-semibold  hover:text-blue-500 dark:text-white dark:hover:text-blue-500"
-              >
-                Add Task
-              </Link>
-              <Link
-                to="/mytask"
-                className="font-semibold  hover:text-blue-500 dark:dark:text-white dark:hover:text-blue-500"
-              >
-                My Task
-              </Link>
-              <Link
-                to="/completedtask"
-                className="font-semibold  hover:text-blue-500 dark:dark:text-white dark:hover:text-blue-500"
-              >
-                Completed Task
-              </Link>
-              <Link
-                to="/login"
-                className="font-semibold  hover:text-blue-500 dark:dark:text-white dark:hover:text-blue-500"
-              >
-                Login
-              </Link>
+            <div className=" flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:pl-5">
+              {menu}
             </div>
           </div>
         </nav>
