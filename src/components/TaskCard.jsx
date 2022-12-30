@@ -1,26 +1,25 @@
 import React from "react";
 
-const TaskCard = () => {
+const TaskCard = ({ data }) => {
+  console.log("CARD DATA", data);
+  const { details, taskName, taskImage, taskCompleted } = data;
   return (
     <>
-      <div className="w-full max-w-sm overflow-hidden    rounded-lg shadow-lg  ">
+      <div className="w-full  max-w-sm overflow-hidden  outline outline-offset-4 p-2 outline-emerald-500  rounded-lg shadow-lg  ">
         <img
           className="object-cover object-center w-full h-56"
-          src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
-          alt="avatar"
+          src={taskImage}
+          alt={taskImage}
         />
 
         <div className="px-6 py-4">
           <h1 className="text-xl font-semibold text-gray-800 dark:text-white">
-            Task Title
+            {taskName}
           </h1>
 
-          <p className="py-2 text-gray-700 dark:text-gray-400">
+          <p className="py-2 h-44 text-gray-700 overflow-x-scroll dark:text-gray-400">
             Details : <br />
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque,
-            nulla animi ut tempore consequatur quisquam nihil cumque nemo,
-            deserunt necessitatibus nobis, vel officia numquam rem a quo dicta
-            corrupti molestiae?
+            {details}
           </p>
         </div>
         <div className="flex items-center justify-between px-6 py-3 bg-gray-900">

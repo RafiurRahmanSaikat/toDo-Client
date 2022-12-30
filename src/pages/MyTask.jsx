@@ -1,7 +1,25 @@
-import React from "react";
+import { useQuery } from "@tanstack/react-query";
+import React, { useContext } from "react";
 import TaskCard from "../components/TaskCard";
+import Loading from "../components/Utilities/Loading";
+import { AuthContext } from "../context/AuthContext";
 
 const MyTask = () => {
+  const { user } = useContext(AuthContext);
+  const email = user?.email;
+  const { data, refetch, isLoading } = useQuery({
+    queryKey: [email],
+    queryFn: async () => {
+      const res = await fetch(
+        `https://to-do-server-six.vercel.app/mytask?search=${email}`
+      );
+
+      const data = await res.json();
+      // console.log("FETCH DATA" ,data );
+      return data;
+    },
+  });
+  // console.log(isLoading,"LAST");
   return (
     <>
       <section className="p-4 text-gray-800">
@@ -10,20 +28,13 @@ const MyTask = () => {
         </h1>
 
         <div className="container gap-8 flex flex-col items-center justify-center mx-auto lg:flex-row lg:flex-wrap lg:justify-evenly lg:px-10">
-          <TaskCard></TaskCard>
-          <TaskCard></TaskCard>
-          <TaskCard></TaskCard>
-          <TaskCard></TaskCard>
-          <TaskCard></TaskCard>
-          <TaskCard></TaskCard>
-          <TaskCard></TaskCard>
-          <TaskCard></TaskCard>
-          <TaskCard></TaskCard>
-          <TaskCard></TaskCard>
-          <TaskCard></TaskCard>
-          <TaskCard></TaskCard>
-          <TaskCard></TaskCard>
-          <TaskCard></TaskCard>
+          {isLoading ? (
+            <Loading></Loading>
+          ) : (
+            data?.map((data) => <TaskCard data={data} key={data._id}></TaskCard>)
+          )}
+
+          
         </div>
       </section>
     </>

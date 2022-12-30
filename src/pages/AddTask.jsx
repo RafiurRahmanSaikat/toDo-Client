@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import todo from "../assets/todo.png";
+import { AuthContext } from "../context/AuthContext";
 
 const AddTask = () => {
+  const { user } = useContext(AuthContext);
+
+  const SUBMIT = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const taskName = form.taskName.value;
+    const taskImage = form.taskImage.value;
+    const details = form.details.value;
+    const userEmail = user?.email;
+    const taskCompleted = false;
+    console.log({ taskImage, taskName, details, userEmail, taskCompleted });
+  };
   return (
     <div>
       <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
@@ -15,7 +28,7 @@ const AddTask = () => {
                 Add Your Task
               </h2>
 
-              <form>
+              <form onSubmit={SUBMIT}>
                 <div className="mt-6 grid gap-4 lg:gap-6">
                   <div>
                     <label className="block text-sm text-gray-700 font-medium dark:text-white">

@@ -7,46 +7,49 @@ const Navbar = () => {
 
   const menu = (
     <>
-{user ? <>
-    <Link
-        to="/mytask"
-        className="font-semibold  hover:text-blue-500 dark:dark:text-white dark:hover:text-blue-500"
-      >
-        My Task
-      </Link>
-      <Link
-        to="/completedtask"
-        className="font-semibold  hover:text-blue-500 dark:dark:text-white dark:hover:text-blue-500"
-      >
-        Completed Task
-      </Link>
-      <Link
-        onClick={logOut}
-        className="font-semibold  hover:text-blue-500 dark:dark:text-white dark:hover:text-blue-500"
-      >
-        Log Out
-      </Link>
-    </>:
-
-      <>
-      
-      <Link
-        to="/addtask"
-        className="font-semibold  hover:text-blue-500 dark:dark:text-white dark:hover:text-blue-500"
-      >
-        Add Task
-      </Link>
-      <Link
-        to="/login"
-        className="font-semibold  hover:text-blue-500 dark:dark:text-white dark:hover:text-blue-500"
-      >
-        Login
-      </Link>
-      </>
-
-    
-
-     }
+      {user ? (
+        <>
+        <Link
+            to="/addtask"
+            className="font-semibold  hover:text-blue-500 dark:dark:text-white dark:hover:text-blue-500"
+          >
+            Add Task
+          </Link>
+          <Link
+            to="/mytask"
+            className="font-semibold  hover:text-blue-500 dark:dark:text-white dark:hover:text-blue-500"
+          >
+            My Task
+          </Link>
+          <Link
+            to="/completedtask"
+            className="font-semibold  hover:text-blue-500 dark:dark:text-white dark:hover:text-blue-500"
+          >
+            Completed Task
+          </Link>
+          <Link
+            onClick={logOut}
+            className="font-semibold  hover:text-blue-500 dark:dark:text-white dark:hover:text-blue-500"
+          >
+            Log Out
+          </Link>
+        </>
+      ) : (
+        <>
+          <Link
+            to="/addtask"
+            className="font-semibold  hover:text-blue-500 dark:dark:text-white dark:hover:text-blue-500"
+          >
+            Add Task
+          </Link>
+          <Link
+            to="/login"
+            className="font-semibold  hover:text-blue-500 dark:dark:text-white dark:hover:text-blue-500"
+          >
+            Login
+          </Link>
+        </>
+      )}
     </>
   );
   return (
